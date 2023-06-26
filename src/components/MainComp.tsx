@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './maincomp.scss';
 import { API_KEY_Weather } from './constants';
 
@@ -8,6 +8,7 @@ function MainComp() {
     const [weatherInfo, setWeatherInfo] = useState<any>();
     const [checkResponse, setCheckResponse] = useState<any>(); //Remember to Declare Types for Any Type Variables
     const [locTime, setLocTime] = useState<Date>();
+    const containerRef = useRef<HTMLDivElement>(null);
 
     async function weatherApiCall() {
         try {
@@ -48,8 +49,20 @@ function MainComp() {
         setLocTime(currentTime);
     }, []);
 
+    useEffect(() => {
+        if(weatherInfo?.main.temp-273.15 < 0 && containerRef.current){
+            containerRef.current.className = `container-main-component bg-snow`;
+        }
+        else if(weatherInfo?.main.temp-273.15 > 0 && weatherInfo?.clouds.all > 90 && containerRef.current){
+            containerRef.current.className = `container-main-component bg-rain`
+        }
+        else if(containerRef.current){
+            containerRef.current.className = `container-main-component`
+        }
+    }, [weatherInfo]);
+
     return (
-        <div className="container-main-component">
+        <div className="container-main-component" ref = {containerRef}>
             <div className="main-component-left">
                 <h1 className="description-info">{weatherInfo?.weather[0].description}</h1>
                 <p className="city-info">{weatherInfo?.name + ', ' +  weatherInfo?.sys.country}</p>
@@ -92,7 +105,7 @@ function MainComp() {
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#f5f5f5" viewBox="0 0 32 32"><title>rainy</title><path d="M25 4c-0.332 0-0.66 0.023-0.987 0.070-1.867-2.544-4.814-4.070-8.013-4.070s-6.145 1.526-8.013 4.070c-0.327-0.047-0.655-0.070-0.987-0.070-3.859 0-7 3.141-7 7s3.141 7 7 7c0.856 0 1.693-0.156 2.482-0.458 1.81 1.578 4.112 2.458 6.518 2.458 2.409 0 4.708-0.88 6.518-2.458 0.789 0.302 1.626 0.458 2.482 0.458 3.859 0 7-3.141 7-7s-3.141-7-7-7zM25 16c-1.070 0-2.057-0.344-2.871-0.917-1.467 1.768-3.652 2.917-6.129 2.917s-4.662-1.148-6.129-2.917c-0.813 0.573-1.801 0.917-2.871 0.917-2.762 0-5-2.238-5-5s2.238-5 5-5c0.676 0 1.316 0.138 1.902 0.38 1.327-2.588 3.991-4.38 7.098-4.38s5.771 1.792 7.096 4.38c0.587-0.242 1.229-0.38 1.904-0.38 2.762 0 5 2.238 5 5s-2.238 5-5 5zM14.063 30c0 1.105 0.895 2 2 2s2-0.895 2-2-2-4-2-4-2 2.895-2 4zM22 28c0 1.105 0.895 2 2 2s2-0.895 2-2-2-4-2-4-2 2.895-2 4zM6 24c0 1.105 0.894 2 2 2s2-0.895 2-2-2-4-2-4-2 2.895-2 4z"></path></svg>
                     <div className="">
                         <p className = "value-text">Chance of Rain</p>
-                        <p className = "value-info">46 %</p>
+                        <p className = "value-info">{weatherInfo?.clouds.all + ' %'}</p>
                     </div>
                 </div>
 
