@@ -4,8 +4,9 @@
     display: flex;
     justify-content: space-between;
     background: url('../Assets/bg.MainBg.jpg');
+    background-repeat: no-repeat;
     min-height: 100vh;
-    background-size: contain;
+    background-size: cover;
     padding: 0 5vw 0 5vw;
     padding-top:70px;
 
