@@ -120,3 +120,12 @@
     background-repeat: no-repeat;
 }
 
+@media screen and (max-width : 470px){
+    .container-main-component{
+        padding-left: 22%;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-position:center;
+    }
+}
+
