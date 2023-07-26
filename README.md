@@ -6,3 +6,8 @@ Problem Solving Patterns:-
 2. Multiple Pointers Pattern :- While iterating over a DS create two variables that act as pointers which iterate over DS at different pace.
 3. Sliding Window Pattern :- Create a subArray of an Array as an window and remove the first item and add the current item to the subArray as it iterates over the SubArray.
 4. Divide & Conquer Pattern :- Create a left pointer & right pointer that starts from the last index of an array, calculate the middle index and compare the value of middle index and the provided value and change the pointer accordingly.
+
+Algorithms:-
+1. Recursion :- Recursion basically means calling a function inside itself with reduced data set. Two main requirements for Recursion are 1. Base Condition 2. Calling Function with Reduced Data.
+2. Searching Algorithms:- Linear Search(Iterating through the DS), Binary Search(Using Multiple Pointer Pattern)
+3. Sorting Algorithms :-
