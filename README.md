@@ -10,4 +10,5 @@ Problem Solving Patterns:-
 Algorithms:-
 1. Recursion :- Recursion basically means calling a function inside itself with reduced data set. Two main requirements for Recursion are 1. Base Condition 2. Calling Function with Reduced Data.
 2. Searching Algorithms:- Linear Search(Iterating through the DS), Binary Search(Using Multiple Pointer Pattern)
-3. Sorting Algorithms :-
+3. Sorting Algorithms :- Bubble Sort(Swap the Current item in the DS with the next item and swap them if the current is larger than the next item).
+                         Selection Sort()
