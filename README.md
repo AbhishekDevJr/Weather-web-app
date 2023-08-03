@@ -14,15 +14,16 @@ Algorithms:-
                          Selection Sort()
 
 Data Structures:-
-1. Singly Linked List :- Nodes & Linked List.
-                         Class Node{
+1. Singly Linked List :-Nodes & Linked List.
+
+                          class Node{
                            constructor(val){
                              this.val = val;
                              this.next = null;
                            }
                          }
 
-                        Class SinglyLinkedList{
+                        class SinglyLinkedList{
                            constructor(){
                                this.head = null;
                                this.tail = null;
