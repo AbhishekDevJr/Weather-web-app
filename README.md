@@ -98,4 +98,15 @@ Data Structures:-
                 }
               return ++this.size;
               }
+
+              pop(){
+                const temp = this.first;
+                if(!this.first) return null;
+                if(this.first === this.last){
+                    this.last = null;
+                  }
+                this.first.next = this.first;
+                this.size--;
+                return temp.value;
+              }
             }
