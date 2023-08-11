@@ -141,4 +141,15 @@ Data Structures:-
                     }
                     return ++this.size;
                 }
+
+                dequeue(){
+                    if(!this.first) return null;
+                    const temp = this.first;
+                    if(this.first === this.last){
+                        this.first = null;
+                    }
+                    this.first = this.first.next;
+                    this.size--;
+                    return temp.value;
+                }
             }
