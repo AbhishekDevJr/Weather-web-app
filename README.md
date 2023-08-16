@@ -153,3 +153,51 @@ Data Structures:-
                     return temp.value;
                 }
             }
+
+4. Binary Search Tree :- Node Class & Binary Search Tree Class
+
+          class Node{
+              constructor(value){
+                  this.value = value;
+                  this.left = null;
+                  this.right = null;
+              }
+          }
+
+         class BinarySearchTree{
+             constructor(){
+                 this.root = null;
+              }
+
+            insert(val){
+                 const newNode = new Node(val);
+                 if(this.root === null){
+                    this.root = newNode;
+                    return newNode;
+                 }
+                 else{
+                     let current = this.root;
+                     while(true){
+                         if(val === current.val) return undefined;
+                         if(val < current.value){
+                             if(current.left === null){
+                                 current.left = newNode;
+                                 return newNode;
+                             }
+                             else{
+                                 current = current.left;
+                             }
+                         }
+                        else if(val > current.value){
+                            if(current.right === null){
+                                 current.right = newNode;
+                                 return newNode;
+                            }
+                            else{
+                                 current = current.right;
+                            }
+                        }
+                     }
+                 }     
+            }
+          }
