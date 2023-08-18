@@ -98,4 +98,106 @@ Data Structures:-
                 }
               return ++this.size;
               }
+
+              pop(){
+                const temp = this.first;
+                if(!this.first) return null;
+                if(this.first === this.last){
+                    this.last = null;
+                  }
+                this.first.next = this.first;
+                this.size--;
+                return temp.value;
+              }
             }
+
+3. Queue:-
+   1) Array Implementation
+   2) Node Class like Singly Linked List:-
+      
+            class Node{
+                constructor(value){
+                    this.value = value;
+                    this.next = null;
+                }
+            }
+
+            class Queue{
+                constructor(){
+                    this.first = null;
+                    this.last = null;
+                    this.size = 0;
+                }
+  
+                enqueue(val){
+                    const newNode = new Node(val);
+                    if(!this.first){
+                        this.first = newNode;
+                        this.last = newNode;
+                    }
+                    else{
+                        this.last.next = newNode;
+                        this.last = newNode;
+                    }
+                    return ++this.size;
+                }
+
+                dequeue(){
+                    if(!this.first) return null;
+                    const temp = this.first;
+                    if(this.first === this.last){
+                        this.last = null;
+                    }
+                    this.first = this.first.next;
+                    this.size--;
+                    return temp.value;
+                }
+            }
+
+4. Binary Search Tree :- Node Class & Binary Search Tree Class
+
+          class Node{
+              constructor(value){
+                  this.value = value;
+                  this.left = null;
+                  this.right = null;
+              }
+          }
+
+         class BinarySearchTree{
+             constructor(){
+                 this.root = null;
+              }
+
+            insert(val){
+                 const newNode = new Node(val);
+                 if(this.root === null){
+                    this.root = newNode;
+                    return newNode;
+                 }
+                 else{
+                     let current = this.root;
+                     while(true){
+                         if(val === current.val) return undefined;
+                         if(val < current.value){
+                             if(current.left === null){
+                                 current.left = newNode;
+                                 return newNode;
+                             }
+                             else{
+                                 current = current.left;
+                             }
+                         }
+                        else if(val > current.value){
+                            if(current.right === null){
+                                 current.right = newNode;
+                                 return newNode;
+                            }
+                            else{
+                                 current = current.right;
+                            }
+                        }
+                     }
+                 }     
+            }
+          }
