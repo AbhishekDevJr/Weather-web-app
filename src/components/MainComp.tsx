@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './maincomp.scss';
 import { API_KEY_Weather } from './constants';
+import ReactGA from "react-ga";
+import useAnalyticsEventTracker from './useAnalyticsEventTracker';
 
 function MainComp() {
 
@@ -9,6 +11,7 @@ function MainComp() {
     const [checkResponse, setCheckResponse] = useState<any>(); //Remember to Declare Types for Any Type Variables
     const [locTime, setLocTime] = useState<Date>();
     const containerRef = useRef<HTMLDivElement>(null);
+    const gaEventTracker = useAnalyticsEventTracker('Contact us');
 
     async function weatherApiCall() {
         try {
@@ -35,6 +38,7 @@ function MainComp() {
     }
 
     function handleBtnClick(): void {
+        gaEventTracker('call');
         if (userInput !== '' && isNaN(Number(userInput)) && userInput) {
             weatherApiCall();
         }
