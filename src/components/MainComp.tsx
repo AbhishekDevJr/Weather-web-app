@@ -66,6 +66,10 @@ function MainComp() {
         }
     }, [weatherInfo]);
 
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
+
     return (
         <div className="container-main-component" ref={containerRef}>
             <div className="main-component-left">
