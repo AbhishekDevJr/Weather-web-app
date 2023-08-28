@@ -201,3 +201,5 @@ Data Structures:-
                  }     
             }
           }
+
+--> Redux Fundamentals & Redux Essentials(RTK) :- https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers
