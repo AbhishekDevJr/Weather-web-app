@@ -12,7 +12,7 @@ function App() {
   ReactGA.initialize(TRACKING_ID);
 
   const apiFunction = async () => {
-    const apiRes = await axios.get('http://localhost:3000');
+    const apiRes = await axios.get('https://messageboardexpress.adaptable.app/weather');
     console.log('API RES----------->', apiRes);
   }
 
